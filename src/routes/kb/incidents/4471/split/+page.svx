@@ -2,7 +2,7 @@
 layout: runbook
 title: 'Two problems in #4471'
 owner: ajmhyd
-status: open
+status: closed
 reviewed: 2026-10-28
 signature: ajmhyd
 ---
@@ -30,5 +30,13 @@ Known was wrong. One ticket per cause. The count is the table, after one id mean
 <CauseTable ticket={4471} />
 
 Each cause is a ticket in this repo. The number on the ticket is the number in that row.
+
+## Engineering update
+
+#4471 closed on 5 October.
+
+`parser` is fixed: `fix(dates): parse dd/mm for eu locales`.
+
+`hint` will not be fixed. The booking-v3 form is retired.
 
 <RenderStamp {signature} />

@@ -1,0 +1,34 @@
+---
+layout: runbook
+title: 'Two problems in #4471'
+owner: ajmhyd
+status: open
+reviewed: 2026-10-28
+signature: ajmhyd
+---
+
+<script>
+  import Callout from '#lib/kb/Callout.svelte';
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+#4471 merged every date report into one ticket and marked it known. The cause table does not agree.
+
+The shared parser reads dates month first. A day-first tenant's dates come out flipped. That is `parser`. It is what most of #4471 is.
+
+booking-v3 prints MM/DD/YYYY under the date field. People type what the hint says. The form then reads the date the tenant's way, day first. That is `hint`, a different bug. Those reports were merged into #4471 and have no ticket of their own.
+
+Intake tagged reports from the browser. The cause depends on the tenant: where they are, and which booking form they run. The two disagree.
+
+Reports the desk read as a one-day move stay in the row the tenant puts them in. The table footnotes them.
+
+<Callout kind="warn">
+Known was wrong. One ticket per cause. The count is the table, after one id means one report.
+</Callout>
+
+<CauseTable ticket={4471} />
+
+Each cause is a ticket in this repo. The number on the ticket is the number in that row.
+
+<RenderStamp {signature} />
